@@ -16,7 +16,7 @@
       .then(({Data}) => {
         criptomonedas.value = Data
       })
-  }) 
+  })
 
 </script>
 
@@ -26,16 +26,37 @@
 
     <div class="contenido">
       <form class="formulario">
-        <label for="moneda">Moneda:</label>
-        <select id="moneda">
-          <option 
-            v-for="(moneda) in monedas" 
-            :key="moneda.codigo" 
-            :value="moneda.codigo"
-          >
-            {{ moneda.texto }}
-          </option>
-        </select>
+        
+        <div class="campo">
+          <label for="moneda">Moneda:</label>
+          <select id="moneda">
+            <option value="">--Selecciona--</option>
+            <option 
+              v-for="(moneda) in monedas" 
+              :key="moneda" 
+              :value="moneda.codigo"
+            >
+              {{ moneda.texto }}
+            </option>
+          </select>
+        </div>
+      
+        <div class="campo">
+          <label for="cripto">Criptomonedas:</label>
+          <select id="cripto">
+            <option value="">--Selecciona--</option>
+            <option 
+              v-for="criptomoneda in criptomonedas" 
+              :key="criptomoneda" 
+              :value="criptomoneda.CoinInfo.Name"
+            >
+              {{ criptomoneda.CoinInfo.FullName }}
+            </option>
+          </select>
+        </div>
+      
+        <input type="submit" value="Cotizar">
+
       </form>
     </div>
 
