@@ -3,6 +3,13 @@
   import Alerta from './components/Alerta.vue'
   import Spinner from './components/Spinner.vue'
 
+  import useCripto from './composable/useCripto'
+
+  const { cotizarMoneda, auth } = useCripto()
+
+  cotizarMoneda();
+  console.log(auth)
+
   const monedas = ref([
       { codigo: 'USD', texto: 'Dolar de Estados Unidos'},
       { codigo: 'MXN', texto: 'Peso Mexicano'},
